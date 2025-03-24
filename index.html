@@ -6,44 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hlavná stránka</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        
-        .product-item.selected {
-            background-color: lightblue;  
-            outline: none;
-        }
-
-        .product-item {
-            cursor: pointer;  
-        }
-
-        
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .products {
-            margin: 20px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .product-item {
-            background-color: #f0f0f0;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .product-item:hover {
-            background-color: #e0e0e0;
-        }
-    </style>
 </head>
 
 <body>
@@ -59,54 +21,14 @@
         </nav>
     </header>
 
-    <div class="products">
-        <h2>Naše produkty</h2>
-        <ul>
-            <li tabindex="0" class="product-item">Produkt 1</li>
-            <li tabindex="0" class="product-item">Produkt 2</li>
-            <li tabindex="0" class="product-item">Produkt 3</li>
-            <li tabindex="0" class="product-item">Produkt 4</li>
-        </ul>
+    <div class="welcome-section">
+        <h1>Vitajte v Tvojej Kozmetike</h1>
+        <p>Objavte svet kvalitnej kozmetiky pre zdravú a krásnu pleť. Ponúkame široký výber produktov, ktoré si zamilujete!</p>
     </div>
 
     <footer>
         <p>&copy; 2025 Tvoja Kozmetika. Všetky práva vyhradené.</p>
     </footer>
-
-    <script>
-        let selectedItemIndex = 0;
-        const items = document.querySelectorAll('.product-item');
-
-        function updateSelection() {
-            items.forEach((item, index) => {
-                if (index === selectedItemIndex) {
-                    item.classList.add('selected');
-                    item.focus(); // Fokus na vybraný produkt
-                } else {
-                    item.classList.remove('selected');
-                }
-            });
-        }
-
-        
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowDown') {
-                
-                selectedItemIndex = (selectedItemIndex + 1) % items.length;
-                updateSelection();
-            } else if (event.key === 'ArrowUp') {
-                
-                selectedItemIndex = (selectedItemIndex - 1 + items.length) % items.length;
-                updateSelection();
-            } else if (event.key === 'Enter') {
-                
-                alert('Vybrali ste: ' + items[selectedItemIndex].textContent);
-            }
-        });
-
-        
-        updateSelection();
-    </script>
 </body>
 
 </html>
