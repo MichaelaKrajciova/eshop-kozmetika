@@ -29,6 +29,40 @@
     <footer>
         <p>&copy; 2025 Tvoja Kozmetika. Všetky práva vyhradené.</p>
     </footer>
+<script>
+        let selectedItemIndex = 0;
+        const items = document.querySelectorAll('.product-item');
+        
+        function updateSelection() {
+            items.forEach((item, index) => {
+                if (index === selectedItemIndex) {
+                    item.classList.add('selected');
+                    item.focus(); 
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+       
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowDown') {
+                
+                selectedItemIndex = (selectedItemIndex + 1) % items.length;
+                updateSelection();
+            } else if (event.key === 'ArrowUp') {
+               
+                selectedItemIndex = (selectedItemIndex - 1 + items.length) % items.length;
+                updateSelection();
+            } else if (event.key === 'Enter') {
+                
+                alert('Vybrali ste: ' + items[selectedItemIndex].textContent);
+            }
+        });
+
+        
+        updateSelection();
+    </script>
 </body>
 
 </html>
